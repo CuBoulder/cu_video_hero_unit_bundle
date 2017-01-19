@@ -32,10 +32,10 @@
 
 <?php if(!empty($content['field_hero_unit_image'])): ?>
   <style>
-    #video-hero-<?php print $bid; ?>.video-hero-static {
+    #video-hero-<?php print $bid; ?> {
       background-image:url(<?php print $image_small; ?>);
     }
-    @media all and (min-width: 480px) and (max-width: 959px) {
+    @media all and (min-width: 768px) and (max-width: 959px) {
       #video-hero-<?php print $bid; ?>.video-hero-static {
         background-image:url(<?php print $image_medium; ?>);
       }
@@ -47,9 +47,9 @@
     }
   </style>
 <?php endif; ?>
+<?php if (isset($video_url)): ?>
 <script type="text/javascript">
-
-  var playerHTML = '<iframe id="video-hero-iframe-<?php print $bid; ?>" class="video-hero-iframe"  frameborder="0" src="https://player.vimeo.com/video/162107022?background=1" width="1600" height="900"></iframe>';
+  var playerHTML = '<iframe id="video-hero-iframe-<?php print $bid; ?>" class="video-hero-iframe"  frameborder="0" src="<?php print $video_url; ?>?background=1" width="1600" height="900"></iframe>';
 
   var agent = getMobileOperatingSystem();
   if (agent != 'iOS' || agent != 'Android' || agent != 'Windows Phone') {
@@ -93,3 +93,4 @@
 
   };
 </script>
+<?php endif; ?>

@@ -70,30 +70,12 @@ function cu_video_hero_unit_preprocess_entity(&$vars) {
     // Get bean ID so we can make a unique id
     $vars['bid'] = $vars['bean']->bid;
 
-    // Get youtube video ID from a youtube url
-    //$txt='https://www.youtube.com/watch?v=AHNAgyyXiOI';
-    $txt = $vars['content']['field_video_hero_url'][0]['#markup'];
+    // FUTURE FEATURE: Check to make sure video exists
+    $vars['video_url'] = 'https://player.vimeo.com/video/' . $vars['content']['field_video_hero_url'][0]['#markup'];
 
-    $re1='.*?';	# Non-greedy match on filler
-    $re2='(?:[a-z][a-z0-9_]*)';	# Uninteresting: var
-    $re3='.*?';	# Non-greedy match on filler
-    $re4='(?:[a-z][a-z0-9_]*)';	# Uninteresting: var
-    $re5='.*?';	# Non-greedy match on filler
-    $re6='(?:[a-z][a-z0-9_]*)';	# Uninteresting: var
-    $re7='.*?';	# Non-greedy match on filler
-    $re8='(?:[a-z][a-z0-9_]*)';	# Uninteresting: var
-    $re9='.*?';	# Non-greedy match on filler
-    $re10='(?:[a-z][a-z0-9_]*)';	# Uninteresting: var
-    $re11='.*?';	# Non-greedy match on filler
-    $re12='(?:[a-z][a-z0-9_]*)';	# Uninteresting: var
-    $re13='.*?';	# Non-greedy match on filler
-    $re14='((?:[a-z][a-z0-9_]*))';	# Variable Name 1
 
-    if ($c=preg_match_all ("/".$re1.$re2.$re3.$re4.$re5.$re6.$re7.$re8.$re9.$re10.$re11.$re12.$re13.$re14."/is", $txt, $matches))
-    {
-        $var1=$matches[1][0];
-        $vars['video_id'] = $var1;
-    }
+
+
 
     // Build array of classes
     $classes_array = array();
@@ -111,7 +93,7 @@ function cu_video_hero_unit_form_bean_form_alter(&$form, &$form_state, $form_id)
   //dpm($form);
   if ($form['bean']['#value']->type == 'video_hero_unit') {
 
-    
+
 
   }
 }

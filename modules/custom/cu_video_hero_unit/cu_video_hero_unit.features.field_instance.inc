@@ -454,7 +454,7 @@ function cu_video_hero_unit_field_default_field_instances() {
       ),
     ),
     'default_value_function' => '',
-    'default_value_php' => '',
+    'default_value_php' => FALSE,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -470,7 +470,7 @@ function cu_video_hero_unit_field_default_field_instances() {
     'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_hero_unit_text_align',
     'label' => 'Text Align',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -564,7 +564,7 @@ function cu_video_hero_unit_field_default_field_instances() {
     'bundle' => 'video_hero_unit',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'ID of a video hosted on Vimeo.com',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -606,6 +606,7 @@ function cu_video_hero_unit_field_default_field_instances() {
   t('Add mp4 and webm formatted video files.');
   t('Background Image');
   t('Headline');
+  t('ID of a video hosted on Vimeo.com');
   t('Link');
   t('Link Color');
   t('Text');
