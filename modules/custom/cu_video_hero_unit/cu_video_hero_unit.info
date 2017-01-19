@@ -35,3 +35,5 @@ features[field_instance][] = bean-video_hero_unit-field_hero_unit_text_align
 features[field_instance][] = bean-video_hero_unit-field_hero_unit_text_color
 features[field_instance][] = bean-video_hero_unit-field_hero_video_overlay
 features[field_instance][] = bean-video_hero_unit-field_video_hero_url
+
+stylesheets[all][] = css/cu_video_hero_unit.css

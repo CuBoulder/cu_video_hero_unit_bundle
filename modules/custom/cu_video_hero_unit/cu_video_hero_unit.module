@@ -7,16 +7,6 @@
 include_once 'cu_video_hero_unit.features.inc';
 
 /**
- * Implements hook_page_alter().
- *
- */
-
-function cu_video_hero_unit_page_alter(&$page) {
-  drupal_add_css(drupal_get_path('module','cu_video_hero_unit') . '/css/cu_video_hero_unit.css');
-  drupal_add_js('//www.youtube.com/iframe_api', 'external');
-}
-
-/**
  * Implements hook_theme_registry_alter().
  *
  * Let Drupal know that we've got bean--video-hero-unit.tpl.php in our module directory.
@@ -73,10 +63,6 @@ function cu_video_hero_unit_preprocess_entity(&$vars) {
     // FUTURE FEATURE: Check to make sure video exists
     $vars['video_url'] = 'https://player.vimeo.com/video/' . $vars['content']['field_video_hero_url'][0]['#markup'];
 
-
-
-
-
     // Build array of classes
     $classes_array = array();
     $classes_array[] = 'hero-unit';
@@ -85,15 +71,6 @@ function cu_video_hero_unit_preprocess_entity(&$vars) {
     $classes_array[] = 'hero-links-' . render($vars['content']['field_hero_unit_link_color'][0]['#markup']);
     $classes_array[] = 'hero-unit-text';
     $vars['hero_classes'] = join(' ', $classes_array);
-
-  }
-}
-
-function cu_video_hero_unit_form_bean_form_alter(&$form, &$form_state, $form_id) {
-  //dpm($form);
-  if ($form['bean']['#value']->type == 'video_hero_unit') {
-
-
 
   }
 }
