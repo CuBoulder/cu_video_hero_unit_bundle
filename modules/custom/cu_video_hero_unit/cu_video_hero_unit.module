@@ -7,6 +7,16 @@
 include_once 'cu_video_hero_unit.features.inc';
 
 /**
+ * Implements hook_page_alter().
+ *
+ */
+
+function cu_video_hero_unit_page_alter(&$page) {
+  drupal_add_css(drupal_get_path('module','cu_video_hero_unit') . '/css/cu_video_hero_unit.css');
+  drupal_add_js('//www.youtube.com/iframe_api', 'external');
+}
+
+/**
  * Implements hook_theme_registry_alter().
  *
  * Let Drupal know that we've got bean--video-hero-unit.tpl.php in our module directory.
@@ -36,6 +46,30 @@ function cu_video_hero_unit_preprocess_entity(&$vars) {
 
   // Only preprocess hero unit beans.
   if ($entity_type == 'bean' && $bundle == 'video_hero_unit') {
+
+    $vars['priority'] = isset($vars['content']['field_hero_unit_size_priority'][0]['#markup']) ? $vars['content']['field_hero_unit_size_priority'][0]['#markup'] : 'text';
+
+    // Get bean ID so we can make a unique id
+    $vars['bid'] = $vars['bean']->bid;
+
+    // FUTURE FEATURE: Check to make sure video exists
+    $vars['video_url'] = 'https://player.vimeo.com/video/' . $vars['content']['field_video_hero_url'][0]['#markup'];
+
+    $id = $vars['content']['field_video_hero_url'][0]['#markup'];
+
+    // Size
+    $size = $vars['content']['field_hero_video_size'][0]['#markup'];
+
+    // Build array of classes
+    $classes_array = array();
+    $classes_array[] = 'hero-unit';
+    $classes_array[] = 'hero-align-' . render($vars['content']['field_hero_unit_text_align'][0]['#markup']);
+    $classes_array[] = 'hero-text-' . render($vars['content']['field_hero_unit_text_color'][0]['#markup']);
+    $classes_array[] = 'hero-links-' . render($vars['content']['field_hero_unit_link_color'][0]['#markup']);
+    $classes_array[] = 'hero-unit-text';
+    $classes_array[] = 'video-hero-unit-size-' . $size;
+    $vars['hero_classes'] = join(' ', $classes_array);
+
     if (!empty($vars['content']['field_hero_unit_image'])) {
       $image = render($vars['content']['field_hero_unit_image']);
       $vars['image'] = trim(preg_replace('/\s+/', ' ', $image));
@@ -55,22 +89,85 @@ function cu_video_hero_unit_preprocess_entity(&$vars) {
       $image_small = render($vars['content']['field_hero_unit_image']);
       $vars['image_small'] = trim(preg_replace('/\s+/', ' ', $image_small));
     }
-    $vars['priority'] = isset($vars['content']['field_hero_unit_size_priority'][0]['#markup']) ? $vars['content']['field_hero_unit_size_priority'][0]['#markup'] : 'text';
 
-    // Get bean ID so we can make a unique id
-    $vars['bid'] = $vars['bean']->bid;
+  }
+}
 
-    // FUTURE FEATURE: Check to make sure video exists
-    $vars['video_url'] = 'https://player.vimeo.com/video/' . $vars['content']['field_video_hero_url'][0]['#markup'];
+function cu_video_hero_unit_form_bean_form_alter(&$form, &$form_state, $form_id) {
+  //dpm($form);
+  if ($form['bean']['#value']->type == 'video_hero_unit') {
 
-    // Build array of classes
-    $classes_array = array();
-    $classes_array[] = 'hero-unit';
-    $classes_array[] = 'hero-align-' . render($vars['content']['field_hero_unit_text_align'][0]['#markup']);
-    $classes_array[] = 'hero-text-' . render($vars['content']['field_hero_unit_text_color'][0]['#markup']);
-    $classes_array[] = 'hero-links-' . render($vars['content']['field_hero_unit_link_color'][0]['#markup']);
-    $classes_array[] = 'hero-unit-text';
-    $vars['hero_classes'] = join(' ', $classes_array);
 
+
+  }
+}
+
+function cu_video_hero_unit_vimeo_poster($id = NULL) {
+  dpm($id);
+  // Request the image hash with Vimeo
+  if ($id > 0) {
+    $hash = unserialize(vimeoget('http://vimeo.com/api/v2/video/' . $id . '.php'));
+    //dpm($hash);
+    // Thumbnail found
+    if ($hash && isset($hash[0]) && isset($hash[0]['thumbnail_large'])) {
+      //header('Content-type: image/jpeg');
+
+
+
+      //return vimeoget($hash[0]['thumbnail_large']);
+    }
+  }
+}
+function vimeoget($url) {
+        if (ini_get('allow_url_fopen')) return file_get_contents($url);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return $result;
+}
+
+/*
+ * Implements hook_secure_permissions
+ *
+ * Adding permissions for video hero unit bean
+ */
+function cu_video_hero_unit_secure_permissions($role) {
+  $permissions = array(
+    'anonymous user' => array(
+      'view any video_hero_unit bean',
+    ),
+    'authenticated user' => array(
+      'view any video_hero_unit bean',
+    ),
+    'administrator' => array(
+      'create any video_hero_unit bean',
+      'delete any video_hero_unit bean',
+      'edit any video_hero_unit bean',
+      'view any video_hero_unit bean',
+    ),
+    'content_editor' => array(
+      'create any video_hero_unit bean',
+      'delete any video_hero_unit bean',
+      'edit any video_hero_unit bean',
+      'view any video_hero_unit bean',
+    ),
+    'developer' => array(
+      'create any video_hero_unit bean',
+      'delete any video_hero_unit bean',
+      'edit any video_hero_unit bean',
+      'view any video_hero_unit bean',
+    ),
+    'site_owner' => array(
+      'create any video_hero_unit bean',
+      'delete any video_hero_unit bean',
+      'edit any video_hero_unit bean',
+      'view any video_hero_unit bean',
+    ),
+  );
+
+  if (isset($permissions[$role])) {
+    return $permissions[$role];
   }
 }

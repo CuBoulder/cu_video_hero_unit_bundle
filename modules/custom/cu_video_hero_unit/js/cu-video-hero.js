@@ -1,25 +1,25 @@
-/**
- * Determine the mobile operating system.
- * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
- *
- * @returns {String}
- */
-function getMobileOperatingSystem() {
-  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+(function( $ ){
+  $(document).ready(function(){
+    vhsize();
+  });
+  $(window).resize(function(){
+    vhsize();
+  });
 
-      // Windows Phone must come first because its UA also contains "Android"
-    if (/windows phone/i.test(userAgent)) {
-        return "Windows Phone";
-    }
+  function vhsize() {
+    var newH;
+    var newW;
+    var h = $('.video-hero-unit').outerHeight();
+    var w = $('.video-hero-unit').width();
+    console.log(w);
+    console.log(h);
 
-    if (/android/i.test(userAgent)) {
-        return "Android";
-    }
 
-    // iOS detection from: http://stackoverflow.com/a/9039885/177710
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        return "iOS";
-    }
-
-    return "unknown";
-}
+      newH = (9/16) * w;
+      var offset = (h - (newH * 1.33)) / 2;
+      //console.log(h);
+      //console.log(newH * 1.25);
+      //console.log(offset);
+      $('.video-hero-unit iframe').css('width', w * 1.33).css('height', newH * 1.33).css('top', offset);
+  }
+})( jQuery );

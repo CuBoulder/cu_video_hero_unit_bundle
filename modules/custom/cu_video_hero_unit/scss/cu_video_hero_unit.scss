@@ -5,16 +5,29 @@
 }
 
 .video-hero-unit {
+  background-color: #000;
   overflow:hidden;
   position: relative;
+  display: flex;
+  align-items: center;
   .video-hero-overlay {
-
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: 2;
+  }
+  .video-hero-poster-frame {
     position: absolute;
     top:0;
     left:0;
     width:100%;
     height:100%;
     z-index: 1;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .video-hero-controls-wrapper {
     opacity: 0;
@@ -27,44 +40,74 @@
     line-height: 100%;
     transition: opacity 0.5s ease;
   }
-  .hero-unit-video-content-wrapper {
+  .video-hero-content-wrapper {
     z-index: 5;
     position: relative;
+    max-width:1200px;
+    margin:0 auto;
   }
-  .fluid-width-video-wrapper {
-    display: none;
-  }
-  @media screen and (min-width:960px) {
-    .fluid-width-video-wrapper {
-      display: block;
-    }
-    .hero-unit-video-content-wrapper {
-      position: absolute;
-      display: block;
-      width:100%;
-      height:100%;
-      z-index: 2;
-      top:0px;
-      left:0;
-      -webkit-transform-style: preserve-3d;
-      -moz-transform-style: preserve-3d;
-      transform-style: preserve-3d;
-      .hero-unit-content-wrapper {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-    }
-    &:hover .video-hero-controls-wrapper {
-      //opacity: 1;
-    }
+  iframe {
+  	position: absolute;
+
+  	display:block;
+
+
+  	width:800px;
+  	height:450px;
+
+  	left: -16.666%;
+  	right: -16.666%;
 
   }
+}
+.video-hero-unit .video-hero-content {
+  padding:20px 20px;
+}
+$padding: 5px;
 
+.video-hero-unit-size-small .video-hero-content {
+  padding:($padding * 4) 20px;
 }
-.video-hero-processed:hover .video-hero-controls-wrapper {
-  opacity: 1;
+.video-hero-unit-size-medium .video-hero-content {
+  padding:($padding * 8) 20px;
 }
+.video-hero-unit-size-large .video-hero-content {
+  padding:($padding * 12) 20px;
+}
+
+@media screen and (min-width:768px) {
+  $padding: 10px;
+  .video-hero-content {
+    font-size:120%;
+  }
+  .video-hero-unit-size-small .video-hero-content {
+    padding:($padding * 4) 40px;
+  }
+  .video-hero-unit-size-medium .video-hero-content {
+    padding:($padding * 8) 40px;
+  }
+  .video-hero-unit-size-large .video-hero-content {
+    padding:($padding * 12) 40px;
+  }
+}
+
+@media screen and (min-width:960px) {
+  $padding: 20px;
+  .video-hero-content {
+    font-size:130%;
+  }
+  .video-hero-unit-size-small .video-hero-content {
+    padding:($padding * 4) 40px;
+  }
+  .video-hero-unit-size-medium .video-hero-content {
+    padding:($padding * 8) 40px;
+  }
+  .video-hero-unit-size-large .video-hero-content {
+    padding:($padding * 12) 40px;
+  }
+}
+
+/* Overlay Colors */
 .hero-text-white .video-hero-overlay {
   background: rgba(0,0,0,.5);
 }
@@ -72,35 +115,68 @@
   background: rgba(255,255,255,.5);
 }
 
-.video-hero-unit .video-hero-iframe {
-    display: none;
-    width:100% !important;
-    height:100% !important;
+/* Text Alignment */
 
 
-}
-.video-hero-unit img {
-  display: block;
-  width:100%;
-  height: auto;
-  z-index: 0;
-}
-@media screen and (min-width:960px) {
-  .video-hero-unit .video-hero-iframe {
-    display: block;
+
+
+.hero-align-left {
+  .video-hero-content {
+    text-align: left;
   }
-  .video-hero-unit {
-    h2 {
-      font-size:200%;
-    }
+}
+.hero-align-right {
+  .video-hero-content {
+    text-align: right;
+    width:100%;
+  }
+}
+.hero-align-center {
+  .video-hero-content {
+    max-width:75%;
+    text-align: center;
+    margin:0 auto;
+  }
+}
+.hero-align-center {
+  .video-hero-content {
+    max-width:75%;
+    text-align: center;
+    margin:0 auto;
+  }
+}
+.hero-align-left-half {
+  .video-hero-content {
+    width:66%;
+    text-align: left;
+    margin:0 auto 0 0;
+  }
+}
+.hero-align-right-half {
+  .video-hero-content {
+    width:66%;
+    text-align: left;
+    margin:0 0 0 auto;
   }
 }
 @media screen and (min-width:768px) {
-  .sidebar .video-hero-unit {
-    font-size:80%;
-    .video-hero-iframe,
-    .video-hero-controls-wrapper {
-      //display: none;
+  .hero-align-left-half {
+    .video-hero-content {
+      width:50%;
+      text-align: left;
+      margin:0 auto 0 0;
     }
   }
+  .hero-align-right-half {
+    .video-hero-content {
+      width:50%;
+      text-align: left;
+      margin:0 0 0 auto;
+    }
+  }
+}
+
+/* Controls */
+.video-hero-unit:hover .video-hero-controls-wrapper {
+  opacity: 1;
 }
