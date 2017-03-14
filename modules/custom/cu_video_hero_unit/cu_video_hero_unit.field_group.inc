@@ -11,7 +11,7 @@ function cu_video_hero_unit_field_group_info() {
   $field_groups = array();
 
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_background_video|bean|hero_unit|form';
   $field_group->group_name = 'group_background_video';
@@ -81,8 +81,8 @@ function cu_video_hero_unit_field_group_info() {
     'weight' => '3',
     'children' => array(
       0 => 'field_hero_unit_headline',
-      1 => 'field_hero_unit_text',
-      2 => 'field_hero_unit_link',
+      1 => 'field_hero_unit_link',
+      2 => 'field_hero_unit_text',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -109,12 +109,13 @@ function cu_video_hero_unit_field_group_info() {
     'label' => 'Video/Design',
     'weight' => '7',
     'children' => array(
-      0 => 'field_hero_unit_text_color',
+      0 => 'field_hero_unit_image',
       1 => 'field_hero_unit_link_color',
       2 => 'field_hero_unit_text_align',
-      3 => 'field_hero_video_overlay',
-      4 => 'field_hero_unit_image',
+      3 => 'field_hero_unit_text_color',
+      4 => 'field_hero_video_overlay',
       5 => 'field_video_hero_url',
+      6 => 'field_hero_video_size',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

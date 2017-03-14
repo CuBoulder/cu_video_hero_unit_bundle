@@ -10,155 +10,6 @@
 function cu_video_hero_unit_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'bean-hero_unit-field_hero_video_mp4'.
-  $field_instances['bean-hero_unit-field_hero_video_mp4'] = array(
-    'bundle' => 'hero_unit',
-    'deleted' => 0,
-    'description' => 'Add mp4 and webm formatted video files.',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'file_entity',
-        'settings' => array(
-          'autoplay' => 1,
-          'controls' => 1,
-          'height' => '',
-          'loop' => 1,
-          'multiple_file_behavior' => 'sources',
-          'muted' => 1,
-          'preload' => '',
-          'width' => '',
-        ),
-        'type' => 'file_video',
-        'weight' => 10,
-      ),
-    ),
-    'entity_type' => 'bean',
-    'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_hero_video_mp4',
-    'label' => 'Video - MP4',
-    'required' => 0,
-    'settings' => array(
-      'description_field' => 0,
-      'file_directory' => 'background-video-mp4',
-      'file_extensions' => 'mp4 webm',
-      'max_filesize' => '5 MB',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'file',
-      'settings' => array(
-        'insert' => 0,
-        'insert_absolute' => FALSE,
-        'insert_class' => '',
-        'insert_default' => 'auto',
-        'insert_styles' => array(
-          'auto' => 'auto',
-          'colorbox__backstretch' => 0,
-          'colorbox__el_hero' => 0,
-          'colorbox__email_ad' => 0,
-          'colorbox__email_ad_large' => 0,
-          'colorbox__email_feature_thumbnail' => 0,
-          'colorbox__email_feature_thumbnail_large' => 0,
-          'colorbox__email_large' => 0,
-          'colorbox__email_medium' => 0,
-          'colorbox__email_teaser_thumbnail' => 0,
-          'colorbox__flexslider_full' => 0,
-          'colorbox__flexslider_thumbnail' => 0,
-          'colorbox__focal_point_preview' => 0,
-          'colorbox__hero' => 0,
-          'colorbox__large' => 0,
-          'colorbox__large_square_thumbnail' => 0,
-          'colorbox__large_wide_thumbnail' => 0,
-          'colorbox__linkit_thumb' => 0,
-          'colorbox__medium' => 0,
-          'colorbox__preview' => 0,
-          'colorbox__slider' => 0,
-          'colorbox__slider-large' => 0,
-          'colorbox__small' => 0,
-          'colorbox__small_square_thumbnail' => 0,
-          'colorbox__small_thumbnail' => 0,
-          'colorbox__square' => 0,
-          'colorbox__square_thumbnail' => 0,
-          'colorbox__thumbnail' => 0,
-          'icon_link' => 0,
-          'image' => 0,
-          'image_backstretch' => 0,
-          'image_el_hero' => 0,
-          'image_email_ad' => 0,
-          'image_email_ad_large' => 0,
-          'image_email_feature_thumbnail' => 0,
-          'image_email_feature_thumbnail_large' => 0,
-          'image_email_large' => 0,
-          'image_email_medium' => 0,
-          'image_email_teaser_thumbnail' => 0,
-          'image_flexslider_full' => 0,
-          'image_flexslider_thumbnail' => 0,
-          'image_focal_point_preview' => 0,
-          'image_hero' => 0,
-          'image_large' => 0,
-          'image_large_square_thumbnail' => 0,
-          'image_large_wide_thumbnail' => 0,
-          'image_linkit_thumb' => 0,
-          'image_medium' => 0,
-          'image_preview' => 0,
-          'image_slider' => 0,
-          'image_slider-large' => 0,
-          'image_small' => 0,
-          'image_small_square_thumbnail' => 0,
-          'image_small_thumbnail' => 0,
-          'image_square' => 0,
-          'image_square_thumbnail' => 0,
-          'image_thumbnail' => 0,
-          'link' => 0,
-        ),
-        'insert_width' => '',
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'file_generic',
-      'weight' => 50,
-    ),
-  );
-
-  // Exported field_instance: 'bean-hero_unit-field_hero_video_overlay'.
-  $field_instances['bean-hero_unit-field_hero_video_overlay'] = array(
-    'bundle' => 'hero_unit',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'default_value_function' => '',
-    'default_value_php' => '',
-    'deleted' => 0,
-    'description' => 'Add an overlay between the video and the text to make it easier to read.',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_key',
-        'weight' => 11,
-      ),
-    ),
-    'entity_type' => 'bean',
-    'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_hero_video_overlay',
-    'label' => 'Video Background Overlay',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 51,
-    ),
-  );
-
   // Exported field_instance: 'bean-video_hero_unit-field_hero_unit_headline'.
   $field_instances['bean-video_hero_unit-field_hero_unit_headline'] = array(
     'bundle' => 'video_hero_unit',
@@ -559,6 +410,44 @@ function cu_video_hero_unit_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'bean-video_hero_unit-field_hero_video_size'.
+  $field_instances['bean-video_hero_unit-field_hero_video_size'] = array(
+    'bundle' => 'video_hero_unit',
+    'default_value' => array(
+      0 => array(
+        'value' => 'medium',
+      ),
+    ),
+    'default_value_function' => '',
+    'default_value_php' => FALSE,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_key',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'bean',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_hero_video_size',
+    'label' => 'Size',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 24,
+    ),
+  );
+
   // Exported field_instance: 'bean-video_hero_unit-field_video_hero_url'.
   $field_instances['bean-video_hero_unit-field_video_hero_url'] = array(
     'bundle' => 'video_hero_unit',
@@ -602,18 +491,16 @@ function cu_video_hero_unit_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Add a semi-transparent overlay to the video to make the text easier to read.');
-  t('Add an overlay between the video and the text to make it easier to read.');
-  t('Add mp4 and webm formatted video files.');
   t('Background Image');
   t('Headline');
   t('ID of a video hosted on Vimeo.com');
   t('Link');
   t('Link Color');
+  t('Size');
   t('Text');
   t('Text Align');
   t('Text Color');
   t('This image should be the same aspect ratio as the video files and will be displayed while the video loads and on smaller screens.');
-  t('Video - MP4');
   t('Video Background Overlay');
   t('Video URL');
 
