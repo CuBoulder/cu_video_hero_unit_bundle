@@ -466,7 +466,7 @@ function cu_video_hero_unit_field_default_field_instances() {
     'entity_type' => 'bean',
     'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_video_hero_url',
-    'label' => 'Video URL',
+    'label' => 'Vimeo.com Video ID',
     'required' => 1,
     'settings' => array(
       'linkit' => array(
@@ -502,7 +502,7 @@ function cu_video_hero_unit_field_default_field_instances() {
   t('Text Color');
   t('This image should be the same aspect ratio as the video files and will be displayed while the video loads and on smaller screens.');
   t('Video Background Overlay');
-  t('Video URL');
+  t('Vimeo.com Video ID');
 
   return $field_instances;
 }
