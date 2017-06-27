@@ -1,4 +1,4 @@
-<div id="video-hero-<?php print $bid; ?>" class="video-hero-unit <?php print $hero_classes; ?>">
+<div id="video-hero-<?php print $bid; ?>" class="fitvidsignore video-hero-unit <?php print $hero_classes; ?>">
   <script src="https://player.vimeo.com/api/player.js"></script>
 
 
