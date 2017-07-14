@@ -54,6 +54,7 @@
   // Wait for their to be progress and then fade out poster frame
   player<?php print $bid; ?>.on('progress', function(data) {
     jQuery('#video-hero-<?php print $bid; ?> .video-hero-poster-frame').fadeOut();
+    jQuery('#video-hero-<?php print $bid; ?>').addClass('video-hero-playing');
   });
 
   jQuery('#video-hero-<?php print $bid; ?> .button-play').on('click', function() { playpause(); } );

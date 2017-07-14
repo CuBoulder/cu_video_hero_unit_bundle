@@ -187,6 +187,6 @@ $padding: 5px;
 }
 
 /* Controls */
-.video-hero-unit:hover .video-hero-controls-wrapper {
+.video-hero-unit.video-hero-playing:hover .video-hero-controls-wrapper {
   opacity: 1;
 }
