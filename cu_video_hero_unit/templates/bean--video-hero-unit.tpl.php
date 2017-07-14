@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <iframe id="video-hero-iframe-<?php print $bid; ?>" class="video-hero-iframe"  frameborder="0" src="<?php print $video_url; ?>?background=1&loop=1" width="" height=""></iframe>
+  <iframe id="video-hero-iframe-<?php print $bid; ?>" class="video-hero-iframe"  frameborder="0" src="<?php print $video_url; ?>?background=1&loop=1" width="" height="" data-fullscreeneo="true"></iframe>
 
   <div class="video-hero-controls-wrapper">
   	<div class="video-hero-controls">
