@@ -49,16 +49,9 @@
   }
   iframe {
   	position: absolute;
-
   	display:block;
-
-
-  	width:800px;
-  	height:450px;
-
-  	left: -16.666%;
-  	right: -16.666%;
-
+  	width:1600px;
+  	height:900px;
   }
 }
 .video-hero-unit .video-hero-content {
@@ -105,6 +98,22 @@ $padding: 5px;
   }
   .video-hero-unit-size-large .video-hero-content {
     padding:($padding * 12) 40px;
+  }
+}
+.video-hero-unit-size-full {
+  min-height: 100vh;
+  .video-hero-content {
+    padding: 40px 20px;
+  }
+  @media screen and (min-width:768px) {
+    .video-hero-content {
+      padding: 40px 40px;
+    }
+  }
+  @media screen and (min-width:960px) {
+    .video-hero-content {
+      padding: 80px 40px;
+    }
   }
 }
 

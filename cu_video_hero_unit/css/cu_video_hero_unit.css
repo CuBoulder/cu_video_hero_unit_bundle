@@ -5,7 +5,7 @@
 .video-hero-unit .video-hero-poster-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background-position: center center; background-size: cover; background-repeat: no-repeat; }
 .video-hero-unit .video-hero-controls-wrapper { opacity: 0; position: absolute; bottom: 10px; left: 10px; z-index: 5; padding: 10px; background: rgba(0, 0, 0, 0.5); line-height: 100%; transition: opacity 0.5s ease; }
 .video-hero-unit .video-hero-content-wrapper { z-index: 5; position: relative; max-width: 1200px; width: 100%; margin: 0 auto; }
-.video-hero-unit iframe { position: absolute; display: block; width: 800px; height: 450px; left: -16.666%; right: -16.666%; }
+.video-hero-unit iframe { position: absolute; display: block; width: 1600px; height: 900px; }
 
 .video-hero-unit .video-hero-content { padding: 20px 20px; }
 
@@ -23,6 +23,11 @@
   .video-hero-unit-size-small .video-hero-content { padding: 80px 40px; }
   .video-hero-unit-size-medium .video-hero-content { padding: 160px 40px; }
   .video-hero-unit-size-large .video-hero-content { padding: 240px 40px; } }
+.video-hero-unit-size-full { min-height: 100vh; }
+.video-hero-unit-size-full .video-hero-content { padding: 40px 20px; }
+@media screen and (min-width: 768px) { .video-hero-unit-size-full .video-hero-content { padding: 40px 40px; } }
+@media screen and (min-width: 960px) { .video-hero-unit-size-full .video-hero-content { padding: 80px 40px; } }
+
 /* Overlay Colors */
 .hero-text-white .video-hero-overlay { background: rgba(0, 0, 0, 0.5); }
 

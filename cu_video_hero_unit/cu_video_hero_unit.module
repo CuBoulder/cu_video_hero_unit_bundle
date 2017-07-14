@@ -171,3 +171,14 @@ function cu_video_hero_unit_secure_permissions($role) {
     return $permissions[$role];
   }
 }
+
+function cu_video_hero_unit_size_options() {
+  $options = array(
+    'small' => 'Small',
+    'medium' => 'Medium',
+    'large' => 'Large',
+    'full' => 'Full',
+  );
+
+  return $options;
+}
