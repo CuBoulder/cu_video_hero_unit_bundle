@@ -8,9 +8,8 @@
   // Full Screen Video Hero
   function fullscreenVideoHero() {
     $('.video-hero-unit-size-full').each(function(){
-      // Determine header size
-      var header = $('.top-content-wrapper').offset().top;
-      console.log(header);
+      // Determine header size by calculating site of header + navigation
+      var header = $('#header-wrapper').outerHeight() + $('#navigation-wrapper').outerHeight();
       $(this).css('min-height', 'calc(100vh - ' + header + 'px)');
     });
   }
