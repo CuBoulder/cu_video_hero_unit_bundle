@@ -34,11 +34,14 @@
     position: absolute;
     bottom:10px;
     left:10px;
-    z-index: 5;
+    z-index: 15;
     padding: 10px;
     background: rgba(0,0,0,.5);
     line-height: 100%;
     transition: opacity 0.5s ease;
+    &:hover {
+      background: rgba(0,0,0,.75);
+    }
   }
   .video-hero-content-wrapper {
     z-index: 15;
