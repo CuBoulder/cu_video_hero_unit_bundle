@@ -3,7 +3,8 @@
 .video-hero-unit { background-color: #000; overflow: hidden; position: relative; display: flex; align-items: center; }
 .video-hero-unit .video-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; }
 .video-hero-unit .video-hero-poster-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background-position: center center; background-size: cover; background-repeat: no-repeat; }
-.video-hero-unit .video-hero-controls-wrapper { opacity: 0; position: absolute; bottom: 10px; left: 10px; z-index: 5; padding: 10px; background: rgba(0, 0, 0, 0.5); line-height: 100%; transition: opacity 0.5s ease; }
+.video-hero-unit .video-hero-controls-wrapper { opacity: 0; position: absolute; bottom: 10px; left: 10px; z-index: 15; padding: 10px; background: rgba(0, 0, 0, 0.5); line-height: 100%; transition: opacity 0.5s ease; }
+.video-hero-unit .video-hero-controls-wrapper:hover { background: rgba(0, 0, 0, 0.75); }
 .video-hero-unit .video-hero-content-wrapper { z-index: 15; position: relative; max-width: 1200px; width: 100%; margin: 0 auto; }
 .video-hero-unit iframe { position: absolute; display: block; width: 1600px; height: 900px; }
 

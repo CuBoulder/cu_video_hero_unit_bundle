@@ -50,7 +50,8 @@
   var iframe = jQuery('#video-hero-iframe-<?php print $bid; ?>');
   var player<?php print $bid; ?> = new Vimeo.Player(iframe);
 
-
+  // Play the video.
+  player<?php print $bid; ?>.play();
   // Wait for their to be progress and then fade out poster frame
   player<?php print $bid; ?>.on('progress', function(data) {
     jQuery('#video-hero-<?php print $bid; ?> .video-hero-poster-frame').fadeOut();
