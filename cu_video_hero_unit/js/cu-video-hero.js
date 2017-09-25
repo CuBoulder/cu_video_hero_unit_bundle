@@ -1,9 +1,44 @@
 (function( $ ){
   $(document).ready(function(){
+    $('.video-hero-unit').each(function(){
+
+      var vars = {};
+      var iframe = $('#' + $(this).data('video-hero-iframe'));
+      var iframeID = '#' + $(this).data('video-hero-iframe');
+      var id = $(this).data('video-hero-id');
+      console.log(id);
+      vars['player' + id] = new Vimeo.Player(iframe);
+
+      // Play the video.
+      vars['player' + id].play();
+      // Wait for their to be progress and then fade out poster frame
+      vars['player' + id].on('progress', function(data) {
+        var videoheroID = $(this).data('video-hero-id');
+        $('#video-hero-' + id + ' .video-hero-poster-frame').fadeOut();
+        $('#video-hero-' + id).addClass('video-hero-playing');
+      });
+      $('#video-hero-' + id + ' .button-play').on('click', function() { videoHeroPlayPause(vars['player' + id], id); } );
+    });
     // Size video on load
     fullscreenVideoHero();
     videoSize();
   });
+
+  // Play/Pause controls
+  function videoHeroPlayPause(player, id) {
+    player.getPaused().then(function(paused) {
+      if (paused) {
+        player.play();
+        $('#video-hero-' + id + ' .button-play').addClass('paused');
+        $('#video-hero-' + id + ' .button-play').find('.fa-play').addClass('fa-pause').removeClass('fa-play');
+
+      } else {
+        player.pause();
+        $('#video-hero-' + id + ' .button-play').removeClass('paused');
+        $('#video-hero-' + id + ' .button-play').find('.fa-pause').removeClass('fa-pause').addClass('fa-play');
+      }
+    });
+  }
 
   // Full Screen Video Hero
   function fullscreenVideoHero() {

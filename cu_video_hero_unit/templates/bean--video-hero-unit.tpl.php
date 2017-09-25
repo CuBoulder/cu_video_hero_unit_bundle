@@ -1,4 +1,4 @@
-<div id="video-hero-<?php print $bid; ?>" class="fitvidsignore video-hero-unit <?php print $hero_classes; ?>">
+<div id="video-hero-<?php print $bid; ?>" class="fitvidsignore video-hero-unit <?php print $hero_classes; ?>" data-video-hero="video-hero-<?php print $bid; ?>" data-video-hero-iframe="video-hero-iframe-<?php print $bid; ?>" data-video-hero-id="<?php print $bid; ?>">
   <script src="https://player.vimeo.com/api/player.js"></script>
 
 
@@ -44,34 +44,3 @@
     }
   </style>
 <?php endif; ?>
-
-
-<script type="text/javascript">
-  var iframe = jQuery('#video-hero-iframe-<?php print $bid; ?>');
-  var player<?php print $bid; ?> = new Vimeo.Player(iframe);
-
-  // Play the video.
-  player<?php print $bid; ?>.play();
-  // Wait for their to be progress and then fade out poster frame
-  player<?php print $bid; ?>.on('progress', function(data) {
-    jQuery('#video-hero-<?php print $bid; ?> .video-hero-poster-frame').fadeOut();
-    jQuery('#video-hero-<?php print $bid; ?>').addClass('video-hero-playing');
-  });
-
-  jQuery('#video-hero-<?php print $bid; ?> .button-play').on('click', function() { playpause(); } );
-
-  var playpause = function() {
-    var playerState = 1;
-    player<?php print $bid; ?>.getPaused().then(function(paused) {
-      if (paused) {
-        player<?php print $bid; ?>.play();
-        jQuery('#video-hero-<?php print $bid; ?> .button-play').addClass('paused');
-        jQuery('#video-hero-<?php print $bid; ?> .button-play').find('.fa-play').addClass('fa-pause').removeClass('fa-play');
-      } else {
-        player<?php print $bid; ?>.pause();
-        jQuery('#video-hero-<?php print $bid; ?> .button-play').removeClass('paused');
-        jQuery('#video-hero-<?php print $bid; ?> .button-play').find('.fa-pause').removeClass('fa-pause').addClass('fa-play');
-      }
-    });
-  };
-</script>
