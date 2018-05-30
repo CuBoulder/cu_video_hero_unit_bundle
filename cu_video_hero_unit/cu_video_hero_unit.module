@@ -128,17 +128,6 @@ function vimeoget($url) {
         return $result;
 }
 
-/*
- * Implements hook_secure_permissions
- *
- * Adding permissions for video hero unit bean
- */
-function cu_video_hero_unit_secure_permissions($role) {
-  if (isset($permissions[$role])) {
-    return $permissions[$role];
-  }
-}
-
 function cu_video_hero_unit_size_options() {
   $options = array(
     'small' => 'Small',
