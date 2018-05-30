@@ -1,7 +1,7 @@
 name = Video Hero Unit Bundle
 description = Adds Video Hero Unit block type
 core = 7.x
-version = 1.0
+version = 7.x.1.5
 project = cu_video_hero_unit_bundle
 project status url = https://github.com/CuBoulder/cu_video_hero_unit_bundle
 bundle_group = 'request_bundles'
