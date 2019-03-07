@@ -8,3 +8,10 @@ project_demo_url = http://www.colorado.edu/webcentral/node/1536
 bundle_group = 'request_bundles'
 
 dependencies[] = cu_video_hero_unit
+bundle_request = 1
+bundle_group = 'request_bundles'
+
+bundle_roles[] = developer
+bundle_roles[] = administrator
+bundle_roles[] = site_owner
+bundle_roles[] = configuration_manager
